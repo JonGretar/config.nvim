@@ -128,6 +128,10 @@ vim.opt.undofile = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
+-- Set Conceal level
+-- Required for Obsidian
+vim.opt.conceallevel = 1
+
 -- Keep signcolumn on by default
 vim.opt.signcolumn = 'yes'
 

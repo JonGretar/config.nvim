@@ -179,7 +179,22 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 --
 -- NOTE: This won't work in all terminal emulators/tmux/etc. Try your own mapping
 -- or just use <C-\><C-n> to exit terminal mode
-vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
+-- vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
+
+-- Let's not use esc in case of LazyGit
+vim.api.nvim_create_autocmd('TermEnter', {
+  callback = function()
+    -- If the terminal window is lazygit, we do not make changes to avoid clashes
+    if string.find(vim.api.nvim_buf_get_name(0), 'lazygit') then
+      return
+    end
+
+    vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
+    -- vim.keymap.set('t', '<ESC>', function()
+    --   vim.cmd 'stopinsert'
+    -- end, { buffer = true })
+  end,
+})
 
 -- TIP: Disable arrow keys in normal mode
 -- vim.keymap.set('n', '<left>', '<cmd>echo "Use h to move!!"<CR>')

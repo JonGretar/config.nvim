@@ -825,6 +825,7 @@ require('lazy').setup({
             group_index = 0,
           },
           { name = 'nvim_lsp' },
+          { name = 'cmp_r' },
           { name = 'luasnip' },
           { name = 'path' },
         },

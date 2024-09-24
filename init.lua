@@ -163,6 +163,12 @@ vim.opt.cursorline = true
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 10
 
+-- Alias uppercase commands because of sticky fingers
+vim.cmd.cnoreabbrev 'W w'
+vim.cmd.cnoreabbrev 'Q q'
+vim.cmd.cnoreabbrev 'Q! q!'
+vim.cmd.cnoreabbrev 'Wq wq'
+
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 

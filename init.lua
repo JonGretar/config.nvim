@@ -125,6 +125,7 @@ vim.opt.breakindent = true
 vim.opt.undofile = true
 
 vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
 
 -- Case-insensitive searching UNLESS \C or one or more capital letters in the search term
 vim.opt.ignorecase = true
@@ -132,7 +133,7 @@ vim.opt.smartcase = true
 
 -- Set Conceal level
 -- Required for Obsidian
-vim.opt.conceallevel = 1
+vim.opt.conceallevel = 0
 
 -- Keep signcolumn on by default
 vim.opt.signcolumn = 'yes'
@@ -638,6 +639,10 @@ require('lazy').setup({
             Lua = {
               completion = {
                 callSnippet = 'Replace',
+              },
+              format = {
+                defaultConfig = { align_array_table = true },
+                align_array_table = true,
               },
               -- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
               diagnostics = {

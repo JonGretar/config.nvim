@@ -860,6 +860,7 @@ require('lazy').setup({
 
       -- You can configure highlights by doing something like:
       vim.cmd.hi 'Comment gui=none'
+      vim.cmd.hi 'DiagnosticUnderlineHint gui=undercurl'
     end,
   },
 
